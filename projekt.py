@@ -29,12 +29,12 @@ try:
             GPIO.output(16, GPIO.LOW)
             GPIO.output(6,GPIO.LOW)
         #Blinker
-        while GPIO.input(19) == 1:
+        if GPIO.input(19) == 1:
                 GPIO.output(20, GPIO.HIGH)
                 time.sleep(0.5)
                 GPIO.output(20, GPIO.LOW)
                 time.sleep(0.5)
-        while GPIO.input(13) == 1:
+        if GPIO.input(13) == 1:
                 GPIO.output(21, GPIO.HIGH)
                 time.sleep(0.5)
                 GPIO.output(21, GPIO.LOW)
@@ -43,7 +43,7 @@ try:
         indoor = data.read()
         if indoor.is_valid():
             x=indoor.temperature
-            print('Temperatur',x)
+            print('Temperatur', str(x)+"°C")
             if x >=25:
                 GPIO.output(22, GPIO.HIGH)
             else:

@@ -39,13 +39,15 @@ try:
                 time.sleep(0.5)
                 GPIO.output(21, GPIO.LOW)
                 time.sleep(0.5)
+        #Temperatursensor
         indoor = data.read()
         if indoor.is_valid():
             x=indoor.temperature
-            print(x)
+            print('Temperatur',x)
             if x >=25:
                 GPIO.output(22, GPIO.HIGH)
             else:
                 GPIO.output(22, GPIO.LOW)
 except KeyboardInterrupt:
     GPIO.cleanup()
+    print('stop')
